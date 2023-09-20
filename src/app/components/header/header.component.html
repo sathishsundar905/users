@@ -1,0 +1,34 @@
+<nav class="navbar  navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item " *ngIf="!userDetail.userName">
+                <a [routerLink]="['/home']" [routerLinkActive]="['active']" class="nav-link">Home <span
+                        class="sr-only"></span></a>
+            </li>
+            <li class="nav-item" *ngIf="userDetail.userName">
+                <a [routerLink]="['/dashboard']" [routerLinkActive]="['active']" class="nav-link">Dashboard</a>
+            </li>
+            <li class="nav-item" *ngIf="userDetail.userName">
+                <a [routerLink]="['/details']" [routerLinkActive]="['active']" class="nav-link">Details</a>
+            </li>
+            <li class="nav-item" *ngIf="userDetail.userName">
+                <a [routerLink]="['/registration']" [routerLinkActive]="['active']" class="nav-link">Registration</a>
+            </li>
+            <li class="nav-item" *ngIf="userDetail.userName">
+                <a [routerLink]="['/users']" [routerLinkActive]="['active']" class="nav-link">Users</a>
+            </li>
+        </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown" *ngIf="userDetail.userName">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{userDetail.userName}} logged In
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li (click)="logOut()"><a class="dropdown-item">log Out</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

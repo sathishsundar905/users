@@ -1,0 +1,46 @@
+<h5>{{pageTitle}}</h5>
+<form [formGroup]="registrationFormGroup" class="w-50 p-4 pl-5">
+    <div class="row">
+        <div class="form-group col-6">
+            <label class=" py-2" for="exampleInputEmail1">User Name</label>
+            <input type="text" class="form-control" formControlName="userName" placeholder="Enter username">
+        </div>
+        <div class="form-group  col-6">
+            <label class=" py-2" for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1"
+                placeholder="Password">
+        </div>
+        <div class="form-group  col-6">
+            <label class=" py-2" for="exampleInputPassword1">Confirm Password</label>
+            <input type="password" class="form-control" formControlName="confirmPassword" id="exampleInputPassword1"
+                placeholder="Password">
+        </div>
+
+        <div class="form-group  col-6">
+            <label class=" py-2" for="exampleInputEmail1">Age</label>
+            <input type="text" class="form-control" formControlName="age" placeholder="Enter age">
+        </div>
+
+        <div class="form-group  col-6">
+            <label class=" py-2" for="exampleInputEmail1">Sex
+            </label>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" formControlName="sex">
+                <option selected value="">None</option>
+                <option *ngFor="let item of sex" [value]="item.value">{{item.label}}</option>
+            </select>
+        </div>
+
+        <div class="form-group  col-6">
+            <label class=" py-2" for="exampleInputEmail1">Role
+            </label>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" formControlName="userRole">
+                <option selected value="">None</option>
+                <option *ngFor="let item of userRoles" [value]="item.value">{{item.label}}</option>
+            </select>
+        </div>
+    </div>
+<div *ngIf="errorMessage" class="p-2 error-mess">
+    {{errorMessage}}
+</div>
+    <button type="submit" class="btn btn-primary mt-3" (click)="submitRegistration()">Submit</button>
+</form>
